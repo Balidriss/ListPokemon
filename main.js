@@ -8,8 +8,8 @@ function createPokemons()
     pokemonsContainer.innerHTML = "";
     for (let i = 1; i <= totalPokemon; i++){
         const div = document.createElement('div');
-        div.classList.add('col-lg-4');
-        div.classList.add('col-md-6');
+        div.classList.add('col-lg-2');
+        div.classList.add('col-md-4');
         div.classList.add('col-sm-12');
         const img = document.createElement('img');
         img.classList.add('img-fluid');
