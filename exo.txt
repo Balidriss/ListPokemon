@@ -1,0 +1,14 @@
+Objectif : afficher les images des Pokémons des numéros 1 à 151
+Il faudra créer une balise HTML de type 'div' qui contiendra une balise HTML de type 'img'
+On doit avoir cette structure de balise :
+
+<div class="col-4">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/681.png">
+</div> 
+
+
+Chaque balise ayant 'col-4' doit être insérée dans la balise de classe 'row block-pokemons', existant sur la page index.html
+
+Astuce :
+Les images ont toutes le même nom, la seule chose qui change est le numéro du pokémon en fin d'URL : https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/681.png
+Il faut donc le remplacer la valeur de 'i' dans une itération de boucle...
