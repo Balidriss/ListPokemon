@@ -23,6 +23,13 @@ function createPokemons()
 
     const btnSwitchTotalPokemon151 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-151');
     const btnSwitchTotalPokemon251 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-251');
+    const btnSwitchTotalPokemon386 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-386');
+    const btnSwitchTotalPokemon493 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-493');
+    const btnSwitchTotalPokemon649 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-649');
+    const btnSwitchTotalPokemon721 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-721');
+    const btnSwitchTotalPokemon809 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-809');
+    const btnSwitchTotalPokemon905 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-905');
+    const btnSwitchTotalPokemon1019 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-1019');
     const pokemonsContainer = document.querySelector('div.row.block-pokemons');    
 
     createPokemons();
