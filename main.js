@@ -1,61 +1,49 @@
-let totalPokemon = 151;
-const changeTotalPokemon = [151,251];
-let is151 = true;
-let is251 = false;
-window.addEventListener('load', () => {
-function createPokemons()
+
+function initPokemonsButtons() {
+    const gens = [151, 251, 386, 493, 649, 721, 809, 905, 1019];
+    const blockButtons = document.querySelector('.pokemons');
+    
+    for (const gen of gens) {
+       const button = document.createElement('button');
+       button.classList.add('btn'); 
+       button.classList.add('btn-primary');
+       button.setAttribute('data-pokemon-gen', gen);
+       button.innerText = gen;
+       blockButtons.appendChild(button);
+    }
+    
+    const buttons = document.querySelectorAll('[data-pokemon-gen]');
+    if (buttons) {
+        const pokemonsContainer = document.querySelector('div.row.block-pokemons');    
+        for (const button of buttons) {
+            button.addEventListener('click', () => {
+                const gen = button.getAttribute('data-pokemon-gen');
+                pokemonsContainer.innerHTML = '';
+                createPokemons(gen, pokemonsContainer);
+            });
+        }
+    }
+}
+
+function createPokemons(gen, pokemonsContainer)
 {
-    pokemonsContainer.innerHTML = "";
-    for (let i = 1; i <= totalPokemon; i++){
+    for (let i = 1; i <= gen; i++){
         const div = document.createElement('div');
-        div.classList.add('col-lg-4');
-        div.classList.add('col-md-6');
+        div.classList.add('col-lg-2');
+        div.classList.add('col-md-3');
         div.classList.add('col-sm-12');
         const img = document.createElement('img');
         img.classList.add('img-fluid');
         const urlImage = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/'+ i +'.png';
         img.setAttribute('src', urlImage);
         div.appendChild(img);
+        document.title = gen;
         pokemonsContainer.appendChild(div);
     }
 }
 
 
-    const btnSwitchTotalPokemon151 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-151');
-    const btnSwitchTotalPokemon251 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-251');
-    const btnSwitchTotalPokemon386 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-386');
-    const btnSwitchTotalPokemon493 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-493');
-    const btnSwitchTotalPokemon649 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-649');
-    const btnSwitchTotalPokemon721 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-721');
-    const btnSwitchTotalPokemon809 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-809');
-    const btnSwitchTotalPokemon905 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-905');
-    const btnSwitchTotalPokemon1019 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-1019');
-    const pokemonsContainer = document.querySelector('div.row.block-pokemons');    
-
-    createPokemons();
-    btnSwitchTotalPokemon151.addEventListener('click', () => {
-        if(!is151)
-        {
-         totalPokemon = 151;
-         is151 = true;
-         is251 = false;
-         createPokemons()
-         console.log(totalPokemon);
-        }
-
-        });
-        btnSwitchTotalPokemon251.addEventListener('click', () => {
-            if(!is251)
-            {
-             totalPokemon = 251;
-             is151 = false;
-             is251 = true;
-             createPokemons()
-             console.log(totalPokemon);
-            }
-    
-            });
-        
+window.addEventListener('load', () => {
+    initPokemonsButtons();
+    createPokemons(151, document.querySelector('div.row.block-pokemons'));
 });
-
-
