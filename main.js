@@ -1,6 +1,7 @@
 let totalPokemon = 151;
 const changeTotalPokemon = [151,251];
 let is151 = true;
+let is251 = false;
 window.addEventListener('load', () => {
 function createPokemons()
 {
@@ -20,27 +21,34 @@ function createPokemons()
 }
 
 
-    const btnSwitchTotalPokemon = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon');
+    const btnSwitchTotalPokemon151 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-151');
+    const btnSwitchTotalPokemon251 = document.querySelector('button.btn.btn-primary.btn-switch-totalPokemon.btn-251');
     const pokemonsContainer = document.querySelector('div.row.block-pokemons');    
 
     createPokemons();
-    btnSwitchTotalPokemon.addEventListener('click', () => {
-        if(is151)
-        {
-         totalPokemon = 251;
-         is151 = false
-         
-        }
-        else
+    btnSwitchTotalPokemon151.addEventListener('click', () => {
+        if(!is151)
         {
          totalPokemon = 151;
          is151 = true;
-
+         is251 = false;
+         createPokemons()
+         console.log(totalPokemon);
         }
-        
-        createPokemons()
-        console.log(totalPokemon);
+
         });
+        btnSwitchTotalPokemon251.addEventListener('click', () => {
+            if(!is251)
+            {
+             totalPokemon = 251;
+             is151 = false;
+             is251 = true;
+             createPokemons()
+             console.log(totalPokemon);
+            }
+    
+            });
+        
 });
 
 
