@@ -32,6 +32,7 @@ function createPokemons(gen, pokemonsContainer)
         div.classList.add('col-lg-2');
         div.classList.add('col-md-3');
         div.classList.add('col-sm-12');
+        div.classList.add('pok-' + i)
         const img = document.createElement('img');
         img.classList.add('img-fluid');
         const urlImage = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/'+ i +'.png';
@@ -42,8 +43,15 @@ function createPokemons(gen, pokemonsContainer)
     }
 }
 
-
+function getToPokemon(number)
+{
+    const pokemonsContainer = document.querySelector('div.row.block-pokemons');
+    
+    pokemonsContainer.querySelector('div.col-lg-2.col-md-3.col-sm-12.pok-' + number).scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    console.log(pokemonsContainer.querySelector('div.col-lg-2.col-md-3.col-sm-12.pok-' + number));
+}
 window.addEventListener('load', () => {
     initPokemonsButtons();
     createPokemons(151, document.querySelector('div.row.block-pokemons'));
+    getToPokemon(150);
 });
