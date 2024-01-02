@@ -76,6 +76,12 @@ function formPokemon() {
                 }
             }
         });
+        form.addEventListener('reset', ($e) => {
+            const pkmn = form['pkmn'];
+            const pokemonsContainer = document.querySelector('div.row.block-pokemons');
+            pokemonsContainer.innerHTML = '';
+            createPokemons(151, pokemonsContainer);
+        });
     }
 }
 
